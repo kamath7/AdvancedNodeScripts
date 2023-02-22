@@ -1,0 +1,7 @@
+process,binding() helps connect js and C++ functions
+
+V8 engine -> converts values between js and C++ world
+
+libuv - Gives node easy access to underlying OS
+
+Source of all this - https://github.com/nodejs/node

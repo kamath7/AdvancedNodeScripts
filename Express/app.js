@@ -1,17 +1,19 @@
-const express = require('express')
+const express = require("express");
+const cluster = require("cluster");
 
-const app = express()
+console.log(cluster.isMaster); //true.
+const app = express();
 
-function playingWithCPU(duration){
-    const start = Date.now()
-    while(Date.now() - start < duration){
-        //infinite loop
-    }
+function playingWithCPU(duration) {
+  const start = Date.now();
+  while (Date.now() - start < duration) {
+    //infinite loop
+  }
 }
 
-app.get("/",(req,res) =>{
-    playingWithCPU(5000)
-    res.send("hi")
-})
+app.get("/", (req, res) => {
+  playingWithCPU(5000);
+  res.send("hi");
+});
 
-app.listen(3000)
+app.listen(3000);

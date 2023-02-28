@@ -5,6 +5,9 @@ console.log(cluster.isMaster); //true.
 
 if (cluster.isMaster) {
   cluster.fork();
+  cluster.fork();
+  cluster.fork();
+  cluster.fork();
   //will execute index.js in child mode
 } else {
   const app = express();
@@ -17,6 +20,10 @@ if (cluster.isMaster) {
 
   app.get("/", (req, res) => {
     playingWithCPU(5000);
+    res.send("hi");
+  });
+
+  app.get("/better", (req, res) => {
     res.send("hi");
   });
 

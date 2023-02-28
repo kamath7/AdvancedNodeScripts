@@ -38,3 +38,13 @@ Once the response is received from the remote server, Node.js processes the resp
 
 - Using node in Cluster node
 - Using worker threads
+
+
+#### Cluster Mgr
+
+In Node.js, a cluster manager is a module that allows a Node.js application to utilize multiple CPU cores effectively. By using a cluster manager, you can create multiple worker processes for a Node.js application and distribute the incoming requests among them. This can improve the performance and scalability of the application.
+
+The cluster module in Node.js provides a built-in cluster manager that allows you to create a cluster of Node.js processes. The cluster module creates a master process that forks child worker processes to handle incoming requests. The master process distributes incoming requests among the worker processes and monitors their health.
+cluster module is used to create a master process that forks worker processes for each CPU core available. Each worker process creates an HTTP server that listens on port 8000. Incoming requests are distributed among the worker processes by the master process.
+
+The cluster module also provides other features, such as the ability to send messages between the master and worker processes, and the ability to gracefully restart worker processes without interrupting the service. By using a cluster manager, you can create highly scalable and robust Node.js applications.

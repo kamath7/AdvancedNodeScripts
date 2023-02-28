@@ -32,3 +32,9 @@ Once the TCP connection is established, Node.js sends the HTTPS request over the
 As data is sent and received over the network, libuv uses a combination of non-blocking I/O and event-driven programming to manage the I/O operations. This allows Node.js to handle multiple requests and responses in parallel, without blocking on I/O operations. Libuv uses a combination of non-blocking I/O and event-driven programming to manage the I/O operations, including the use of a thread pool for some types of I/O operations that can block the event loop.
 
 Once the response is received from the remote server, Node.js processes the response and returns the result to the calling code. If there are multiple requests and responses being handled at the same time, Node.js uses the event loop and libuv to manage the concurrency and ensure that each request is handled in a timely and efficient manner.
+
+
+### Improving performance
+
+- Using node in Cluster node
+- Using worker threads

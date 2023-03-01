@@ -7,8 +7,6 @@ console.log(cluster.isMaster); //true.
 if (cluster.isMaster) {
   cluster.fork();
   cluster.fork();
-  cluster.fork();
-  cluster.fork();
   //will execute index.js in child mode
 } else {
   const app = express();

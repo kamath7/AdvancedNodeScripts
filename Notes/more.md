@@ -57,3 +57,13 @@ ab -n 1000 -c 10 http://example.com/
 This command will send 1000 requests to http://example.com/ with a concurrency of 10, meaning that 10 requests will be sent at a time until all 1000 have been sent. The output will include statistics such as the mean time per request, the total number of requests, and the percentage of requests that were successful.
 -n specifies the number of requests to send
 -c specifies the concurrency, or number of requests to send at a time
+
+#### Downsides of more cluster.fork()
+
+The reason why adding more cluster.fork() calls can increase the time is that each forked child process will run a copy of the same code, which includes the CPU-intensive crypto.pbkdf2() function call in the "/" route handler. When multiple child processes are running, each process will execute this function call independently, which can consume a significant amount of CPU resources.
+
+If the system has a limited number of CPUs, adding more child processes than the number of available CPUs can cause the system to become overloaded, which can lead to slower performance or even system crashes. This is because each child process needs to compete for the available CPU resources, which can slow down the overall performance of the system.
+
+In general, it's recommended to fork one child process for each CPU core available on the system to ensure that each child process has access to enough CPU resources. You can use the os module to get the number of available CPU cores on the system and fork a corresponding number of child processes.
+
+However, it's important to note that adding more child processes may not always lead to better performance, and it depends on the specific workload and the available system resources. It's recommended to perform benchmarking and testing to determine the optimal number of child processes for a specific workload and system configuration.

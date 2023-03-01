@@ -55,3 +55,5 @@ pacheBench (ab) is a command-line tool for benchmarking HTTP servers. It allows 
 
 ab -n 1000 -c 10 http://example.com/
 This command will send 1000 requests to http://example.com/ with a concurrency of 10, meaning that 10 requests will be sent at a time until all 1000 have been sent. The output will include statistics such as the mean time per request, the total number of requests, and the percentage of requests that were successful.
+-n specifies the number of requests to send
+-c specifies the concurrency, or number of requests to send at a time

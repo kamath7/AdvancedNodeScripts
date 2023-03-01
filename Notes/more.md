@@ -48,3 +48,10 @@ The cluster module in Node.js provides a built-in cluster manager that allows yo
 cluster module is used to create a master process that forks worker processes for each CPU core available. Each worker process creates an HTTP server that listens on port 8000. Incoming requests are distributed among the worker processes by the master process.
 
 The cluster module also provides other features, such as the ability to send messages between the master and worker processes, and the ability to gracefully restart worker processes without interrupting the service. By using a cluster manager, you can create highly scalable and robust Node.js applications.
+
+#### Apache benchmark (ab)
+
+pacheBench (ab) is a command-line tool for benchmarking HTTP servers. It allows you to send a specified number of requests to a server and measure the response time and other statistics. Here's an example code snippet:
+
+ab -n 1000 -c 10 http://example.com/
+This command will send 1000 requests to http://example.com/ with a concurrency of 10, meaning that 10 requests will be sent at a time until all 1000 have been sent. The output will include statistics such as the mean time per request, the total number of requests, and the percentage of requests that were successful.

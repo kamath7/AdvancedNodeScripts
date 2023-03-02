@@ -2,13 +2,6 @@ const express = require("express");
 const cluster = require("cluster");
 const crypto = require("crypto");
 
-console.log(cluster.isMaster); //true.
-
-if (cluster.isMaster) {
-  cluster.fork();
-  cluster.fork();
-  //will execute index.js in child mode
-} else {
   const app = express();
 
   app.get("/", (req, res) => {
@@ -22,6 +15,6 @@ if (cluster.isMaster) {
   });
 
   app.listen(3000);
-}
+
 
 //create a node function that adds two numbers

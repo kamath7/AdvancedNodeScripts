@@ -67,3 +67,5 @@ If the system has a limited number of CPUs, adding more child processes than the
 In general, it's recommended to fork one child process for each CPU core available on the system to ensure that each child process has access to enough CPU resources. You can use the os module to get the number of available CPU cores on the system and fork a corresponding number of child processes.
 
 However, it's important to note that adding more child processes may not always lead to better performance, and it depends on the specific workload and the available system resources. It's recommended to perform benchmarking and testing to determine the optimal number of child processes for a specific workload and system configuration.
+
+ pm2 start app.js -i 0

@@ -15,7 +15,9 @@ app.get("/", (req, res) => {
       postMessage(counter);
     };
   });
-  worker.onmessage = function () {};
+  worker.onmessage = function (myCounter) {
+    console.log(myCounter);
+  };
   worker.postMessage();
 });
 
